@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Report — 11/5 Park Lane, South Yarra | Davidson Property Advocates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#10233f;
+    --navy-light:#1c3a63;
+    --gold:#b9924a;
+    --gold-light:#e8d5ab;
+    --cream:#faf7f1;
+    --grey:#6b7280;
+    --line:#e5e0d5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:#1f2937;
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand{font-family:'Playfair Display',serif;}
+  .page{max-width:960px;margin:0 auto;background:#fff;box-shadow:0 0 40px rgba(16,35,63,0.08);}
+
+  /* Header */
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;
+    padding:28px 48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  header .brand{font-size:22px;letter-spacing:0.5px;}
+  header .brand span{color:var(--gold-light);}
+  header .tagline{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);opacity:0.85;margin-top:2px;}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    height:320px;
+    background:
+      linear-gradient(rgba(16,35,63,0.55),rgba(16,35,63,0.75)),
+      repeating-linear-gradient(45deg, #2a3f5f 0, #2a3f5f 40px, #24395a 40px, #24395a 80px);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:36px 48px;
+  }
+  .hero .badge{
+    display:inline-block;
+    background:var(--gold);
+    color:#10233f;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:14px;
+    width:fit-content;
+  }
+  .hero h1{font-size:34px;margin-bottom:6px;}
+  .hero p{font-size:15px;opacity:0.9;}
+
+  /* Sections */
+  section{padding:36px 48px;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-title{
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+  h2.section-heading{font-size:24px;color:var(--navy);margin-bottom:18px;}
+
+  /* Client snapshot */
+  .client-card{
+    display:flex;
+    gap:24px;
+    background:var(--navy);
+    color:#fff;
+    border-radius:12px;
+    padding:28px;
+  }
+  .client-avatar{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--gold);
+    color:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:26px;font-weight:700;
+    flex-shrink:0;
+  }
+  .client-card h3{font-size:20px;margin-bottom:4px;}
+  .client-card p.role{color:var(--gold-light);font-size:13px;margin-bottom:12px;}
+  .client-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .client-tags span{
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25);
+    padding:4px 12px;border-radius:20px;font-size:12px;
+  }
+
+  /* Stats grid */
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .stat-box{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+  }
+  .stat-box .value{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);font-weight:700;}
+  .stat-box .label{font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;}
+
+  /* Feature list */
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:8px;}
+  .feature-grid div{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .feature-grid .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+  /* Table */
+  table{width:100%;border-collapse:collapse;margin-top:8px;}
+  th,td{text-align:left;padding:12px 10px;font-size:13.5px;}
+  thead th{
+    background:var(--navy);color:#fff;font-weight:600;
+    text-transform:uppercase;font-size:11px;letter-spacing:0.5px;
+  }
+  tbody tr:nth-child(even){background:var(--cream);}
+  tbody td{border-bottom:1px solid var(--line);}
+
+  /* Pros/cons */
+  .pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+  .pc-card{border-radius:10px;padding:20px;}
+  .pc-card.pros{background:#eef6ee;border:1px solid #cfe8cf;}
+  .pc-card.cons{background:#fbeeee;border:1px solid #f0cfcf;}
+  .pc-card h4{margin-bottom:10px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px;}
+  .pc-card.pros h4{color:#2f7a3a;}
+  .pc-card.cons h4{color:#a13d3d;}
+  .pc-card ul{padding-left:18px;font-size:14px;}
+  .pc-card li{margin-bottom:6px;}
+
+  /* Advocate note */
+  .note{
+    background:var(--cream);
+    border-left:4px solid var(--gold);
+    padding:20px 24px;
+    font-style:italic;
+    color:#374151;
+    border-radius:0 8px 8px 0;
+  }
+  .note .signed{margin-top:12px;font-style:normal;font-weight:600;color:var(--navy);}
+
+  /* CTA footer */
+  .cta{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;text-align:center;padding:44px 48px;
+  }
+  .cta h2{font-size:26px;margin-bottom:10px;}
+  .cta p{opacity:0.85;margin-bottom:20px;}
+  .cta .contact-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;font-size:14px;}
+  .cta .contact-row div{display:flex;flex-direction:column;}
+  .cta .contact-row span.label{color:var(--gold-light);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+
+  footer.disclaimer{
+    padding:18px 48px;font-size:11px;color:var(--grey);text-align:center;background:#fff;
+  }
+
+  @media (max-width:640px){
+    header,section,.cta{padding:24px;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .feature-grid,.pc-grid{grid-template-columns:1fr;}
+    .client-card{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="brand">Davidson <span>Property Advocates</span></div>
+      <div class="tagline">Trusted · Professional · Connected · Discreet</div>
+    </div>
+    <div style="text-align:right;font-size:12px;">
+      Property Report<br>
+      <strong>Ref: DPA-2026-0091</strong>
+    </div>
+  </header>
+
+  <div class="hero">
+    <span class="badge">Shortlisted Property</span>
+    <h1>11/5 Park Lane, South Yarra VIC 3141</h1>
+    <p>Prepared for Jordan Ellis · Single Professional — Unit Buyer · Price Guide $480,000&ndash;$530,000</p>
+  </div>
+
+  <!-- Client Snapshot -->
+  <section>
+    <div class="section-title">Client Snapshot</div>
+    <div class="client-card">
+      <div class="client-avatar">JE</div>
+      <div>
+        <h3>Jordan Ellis</h3>
+        <p class="role">Marketing Manager · First-Time Buyer · Melbourne CBD</p>
+        <div class="client-tags">
+          <span>1&ndash;2 Bedroom Unit</span>
+          <span>Budget $550k&ndash;$650k</span>
+          <span>Walk to Public Transport</span>
+          <span>Low Maintenance</span>
+          <span>Inner City / Inner East</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Overview -->
+  <section>
+    <div class="section-title">Property Overview</div>
+    <h2 class="section-heading">At a Glance</h2>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">1</div><div class="label">Bedroom</div></div>
+      <div class="stat-box"><div class="value">1</div><div class="label">Bathroom</div></div>
+      <div class="stat-box"><div class="value">1</div><div class="label">Car Space</div></div>
+      <div class="stat-box"><div class="value">58m²</div><div class="label">Internal Area</div></div>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:32px;">Key Features</h2>
+    <div class="feature-grid">
+      <div><span class="dot"></span> Studio-style open-plan living</div>
+      <div><span class="dot"></span> 350m walk to South Yarra Station</div>
+      <div><span class="dot"></span> Low body corporate fees (approx. $650/qtr)</div>
+      <div><span class="dot"></span> Secure basement car space</div>
+      <div><span class="dot"></span> North-facing balcony</div>
+      <div><span class="dot"></span> Building concierge &amp; secure entry</div>
+      <div><span class="dot"></span> 10-minute tram to CBD</div>
+      <div><span class="dot"></span> Walking distance to Chapel Street dining precinct</div>
+    </div>
+  </section>
+
+  <!-- Suburb Snapshot -->
+  <section>
+    <div class="section-title">Suburb Snapshot — South Yarra</div>
+    <h2 class="section-heading">Market Indicators <span style="font-size:12px;color:var(--grey);font-weight:400;">(placeholder data, to be verified)</span></h2>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">$545k</div><div class="label">Median Unit Price</div></div>
+      <div class="stat-box"><div class="value">+4.2%</div><div class="label">12-Month Growth</div></div>
+      <div class="stat-box"><div class="value">4.1%</div><div class="label">Rental Yield</div></div>
+      <div class="stat-box"><div class="value">21 Days</div><div class="label">Avg. Days on Market</div></div>
+    </div>
+  </section>
+
+  <!-- Comparable Sales -->
+  <section>
+    <div class="section-title">Comparable Sales</div>
+    <h2 class="section-heading">Recent Transactions <span style="font-size:12px;color:var(--grey);font-weight:400;">(illustrative only)</span></h2>
+    <table>
+      <thead>
+        <tr><th>Address</th><th>Beds</th><th>Price</th><th>Sold Date</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>8/12 Toorak Road, South Yarra</td><td>1</td><td>$512,000</td><td>Jul 2026</td><td>Similar size, no car space</td></tr>
+        <tr><td>3/4 Osborne Ave, South Yarra</td><td>1</td><td>$538,000</td><td>Jun 2026</td><td>Comparable building age</td></tr>
+        <tr><td>15/2 Yarra Street, South Yarra</td><td>2</td><td>$601,000</td><td>Aug 2026</td><td>Larger floorplan, benchmark ceiling</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Pros and Cons -->
+  <section>
+    <div class="section-title">Advocate Assessment</div>
+    <h2 class="section-heading">Strengths &amp; Considerations</h2>
+    <div class="pc-grid">
+      <div class="pc-card pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Within budget with room to negotiate</li>
+          <li>Exceptional walkability and transport access</li>
+          <li>Low-maintenance lifestyle fit for a busy professional</li>
+          <li>Strong resale demand in this pocket of South Yarra</li>
+        </ul>
+      </div>
+      <div class="pc-card cons">
+        <h4>Considerations</h4>
+        <ul>
+          <li>No outdoor space beyond balcony</li>
+          <li>Owners corporation rules limit renovations</li>
+          <li>Road-facing aspect may carry some traffic noise</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advocate Note -->
+  <section>
+    <div class="section-title">Advocate's Note</div>
+    <div class="note">
+      "This apartment presents excellent value in a tightly-held pocket of South Yarra. Given Jordan's priorities of
+      commute time and low maintenance, I'd recommend we move quickly, well-presented one-bedders at this price point
+      typically attract multiple offers within the first two weeks."
+      <div class="signed">— Tonya Davidson, Founder</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Ready to Move on This Property?</h2>
+    <p>Your advocate is on standby to arrange an inspection, building report, or negotiation strategy.</p>
+    <div class="contact-row">
+      <div><span class="label">Phone</span> 0417 391 987</div>
+      <div><span class="label">Email</span> tonya@davidsonadvocates.com.au</div>
+      <div><span class="label">Office</span> 15 William Street, Cremorne VIC 3121</div>
+    </div>
+  </div>
+
+  <footer class="disclaimer">
+    This report contains placeholder data generated for planning purposes only and does not reflect verified market research.
+    All figures, comparable sales, and suburb statistics are to be confirmed before client presentation.
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Report — 7 Heritage Court, Macleod | Davidson Property Advocates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#10233f;
+    --navy-light:#1c3a63;
+    --gold:#b9924a;
+    --gold-light:#e8d5ab;
+    --cream:#faf7f1;
+    --grey:#6b7280;
+    --line:#e5e0d5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:#1f2937;
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand{font-family:'Playfair Display',serif;}
+  .page{max-width:960px;margin:0 auto;background:#fff;box-shadow:0 0 40px rgba(16,35,63,0.08);}
+
+  /* Header */
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;
+    padding:28px 48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  header .brand{font-size:22px;letter-spacing:0.5px;}
+  header .brand span{color:var(--gold-light);}
+  header .tagline{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);opacity:0.85;margin-top:2px;}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    height:320px;
+    background:
+      linear-gradient(rgba(16,35,63,0.55),rgba(16,35,63,0.75)),
+      repeating-linear-gradient(45deg, #2a3f5f 0, #2a3f5f 40px, #24395a 40px, #24395a 80px);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    padding:36px 48px;
+  }
+  .hero .badge{
+    display:inline-block;
+    background:var(--gold);
+    color:#10233f;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:14px;
+    width:fit-content;
+  }
+  .hero h1{font-size:32px;margin-bottom:6px;}
+  .hero p{font-size:15px;opacity:0.9;}
+
+  /* Sections */
+  section{padding:36px 48px;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-title{
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+  h2.section-heading{font-size:24px;color:var(--navy);margin-bottom:18px;}
+  h3.property-heading{font-size:19px;color:var(--navy);margin-bottom:4px;}
+  p.property-sub{font-size:13px;color:var(--grey);margin-bottom:20px;}
+
+  /* Client snapshot */
+  .client-card{
+    display:flex;
+    gap:24px;
+    background:var(--navy);
+    color:#fff;
+    border-radius:12px;
+    padding:28px;
+  }
+  .client-avatar{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--gold);
+    color:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:26px;font-weight:700;
+    flex-shrink:0;
+  }
+  .client-card h3{font-size:20px;margin-bottom:4px;}
+  .client-card p.role{color:var(--gold-light);font-size:13px;margin-bottom:12px;}
+  .client-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .client-tags span{
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25);
+    padding:4px 12px;border-radius:20px;font-size:12px;
+  }
+
+  /* Stats grid */
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .stat-box{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+  }
+  .stat-box .value{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);font-weight:700;}
+  .stat-box .label{font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;}
+
+  /* Feature list */
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:8px;}
+  .feature-grid div{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .feature-grid .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+  /* Pros/cons */
+  .pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;}
+  .pc-card{border-radius:10px;padding:20px;}
+  .pc-card.pros{background:#eef6ee;border:1px solid #cfe8cf;}
+  .pc-card.cons{background:#fbeeee;border:1px solid #f0cfcf;}
+  .pc-card h4{margin-bottom:10px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px;}
+  .pc-card.pros h4{color:#2f7a3a;}
+  .pc-card.cons h4{color:#a13d3d;}
+  .pc-card ul{padding-left:18px;font-size:14px;}
+  .pc-card li{margin-bottom:6px;}
+
+  .divider{height:1px;background:var(--line);margin:32px 0;}
+
+  /* Advocate note */
+  .note{
+    background:var(--cream);
+    border-left:4px solid var(--gold);
+    padding:20px 24px;
+    font-style:italic;
+    color:#374151;
+    border-radius:0 8px 8px 0;
+  }
+  .note .signed{margin-top:12px;font-style:normal;font-weight:600;color:var(--navy);}
+
+  /* CTA footer */
+  .cta{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;text-align:center;padding:44px 48px;
+  }
+  .cta h2{font-size:26px;margin-bottom:10px;}
+  .cta p{opacity:0.85;margin-bottom:20px;}
+  .cta .contact-row{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;font-size:14px;}
+  .cta .contact-row div{display:flex;flex-direction:column;}
+  .cta .contact-row span.label{color:var(--gold-light);font-size:11px;text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;}
+
+  footer.disclaimer{
+    padding:18px 48px;font-size:11px;color:var(--grey);text-align:center;background:#fff;
+  }
+
+  @media (max-width:640px){
+    header,section,.cta{padding:24px;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .feature-grid,.pc-grid{grid-template-columns:1fr;}
+    .client-card{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="brand">Davidson <span>Property Advocates</span></div>
+      <div class="tagline">Trusted · Professional · Connected · Discreet</div>
+    </div>
+    <div style="text-align:right;font-size:12px;">
+      Property Report<br>
+      <strong>Ref: DPA-2026-0093</strong>
+    </div>
+  </header>
+
+  <div class="hero">
+    <span class="badge">Shortlisted Properties</span>
+    <h1>7 Heritage Court, Macleod VIC 3085</h1>
+    <p>Prepared for Simon Hutchison · Family Buyer, Wife &amp; Two Daughters (14 &amp; 10) · Target Area: Springthorpe Estate, Macleod</p>
+  </div>
+
+  <!-- Client Snapshot -->
+  <section>
+    <div class="section-title">Client Snapshot</div>
+    <div class="client-card">
+      <div class="client-avatar">SH</div>
+      <div>
+        <h3>Simon Hutchison</h3>
+        <p class="role">Family Buyer · Wife &amp; Two Daughters (14 &amp; 10) · Targeting Springthorpe Estate, Macleod</p>
+        <div class="client-tags">
+          <span>3&ndash;4 Bedroom Family Home</span>
+          <span>Springthorpe Estate, Macleod</span>
+          <span>Two-Storey Preferred</span>
+          <span>Dead-End / Cul-de-Sac Position</span>
+          <span>Community Pool &amp; Park Access</span>
+          <span>Fenced Backyard, Medium Car Space</span>
+          <span>Near Schools</span>
+          <span>Budget Not Yet Confirmed</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Option 1 -->
+  <section>
+    <div class="section-title">Option 1 — Best Overall Match</div>
+    <h2 class="section-heading">7 Heritage Court, Macleod, Vic 3085</h2>
+    <p class="property-sub">Price Guide $1,400,000&ndash;$1,540,000 · Springthorpe, Macleod (cul-de-sac) · Jellis Craig &ndash; Ivanhoe &amp; Rosanna</p>
+
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">4</div><div class="label">Bedrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Bathrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Car Spaces</div></div>
+      <div class="stat-box"><div class="value">2-Storey</div><div class="label">Layout</div></div>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:32px;">Key Features</h2>
+    <div class="feature-grid">
+      <div><span class="dot"></span> Custom-built family home in a tranquil cul-de-sac within Springthorpe</div>
+      <div><span class="dot"></span> Short walk to the Country Club, recreation reserve, playground and parkland trails</div>
+      <div><span class="dot"></span> Exclusive resident access to the Country Club swimming pool, tennis courts and gymnasium</div>
+      <div><span class="dot"></span> Grand entry hall with formal lounge and separate casual living room</div>
+      <div><span class="dot"></span> Expansive kitchen with 900mm cooker and stone-topped breakfast servery</div>
+      <div><span class="dot"></span> Covered patio and low-maintenance garden with space for kids' play areas</div>
+      <div><span class="dot"></span> Three robed bedrooms upstairs plus grand master suite with WIR and ensuite</div>
+      <div><span class="dot"></span> Double remote garage with workshop/storage and drive-through access</div>
+      <div><span class="dot"></span> Ducted heating and cooling, ducted vacuum, alarm system</div>
+      <div><span class="dot"></span> Close to Polaris shopping, Macleod Village, trains and La Trobe University</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Suburb Snapshot — Macleod</div>
+    <h2 class="section-heading">Market Indicators <span style="font-size:12px;color:var(--grey);font-weight:400;">(placeholder data, to be verified)</span></h2>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">$1.35m</div><div class="label">Median House Price</div></div>
+      <div class="stat-box"><div class="value">+4.5%</div><div class="label">12-Month Growth</div></div>
+      <div class="stat-box"><div class="value">2.8%</div><div class="label">Rental Yield</div></div>
+      <div class="stat-box"><div class="value">22 Days</div><div class="label">Avg. Days on Market</div></div>
+    </div>
+
+    <div class="pc-grid">
+      <div class="pc-card pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Sits within Springthorpe itself, in a private cul-de-sac &ndash; directly matching the dead-end road preference</li>
+          <li>Walking distance to the Country Club pool, recreation reserve and playground &ndash; ticks the community pool and park priorities</li>
+          <li>Two-storey layout with three robed bedrooms plus a master suite upstairs &ndash; comfortably fits Simon, his wife and both daughters</li>
+          <li>Low-maintenance garden with space for kids' play areas, matching the backyard requirement</li>
+          <li>Double garage plus workshop/storage &ndash; more than covers the medium car space need</li>
+        </ul>
+      </div>
+      <div class="pc-card cons">
+        <h4>Considerations</h4>
+        <ul>
+          <li>Listing doesn't explicitly confirm a fully fenced boundary &ndash; worth verifying at inspection</li>
+          <li>No land size stated in the listing &ndash; recommend requesting title details</li>
+          <li>No budget was stated by Simon; confirm affordability against this price range before proceeding</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Option 2 -->
+  <section>
+    <div class="section-title">Option 2 — Strong Alternative in Springthorpe</div>
+    <h2 class="section-heading">77 Springthorpe Boulevard, Macleod, Vic 3085</h2>
+    <p class="property-sub">$1,650,000&ndash;$1,725,000 · Springthorpe Estate, Macleod (959m²) · Jellis Craig &ndash; Ivanhoe &amp; Rosanna</p>
+
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">4</div><div class="label">Bedrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Bathrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Car Spaces</div></div>
+      <div class="stat-box"><div class="value">959m²</div><div class="label">Land Size</div></div>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:32px;">Key Features</h2>
+    <div class="feature-grid">
+      <div><span class="dot"></span> Address sits directly within the Springthorpe Estate specifically requested</div>
+      <div><span class="dot"></span> Architecturally designed two-storey home connected by a suspended boardwalk upstairs</div>
+      <div><span class="dot"></span> Bespoke kitchen with premium Smeg appliances and breakfast bench servery</div>
+      <div><span class="dot"></span> Covered deck opening onto an expansive 959m² established garden</div>
+      <div><span class="dot"></span> Separate lounge suited as formal living, rumpus or media retreat</div>
+      <div><span class="dot"></span> Three bedrooms upstairs with built-in robes plus an ensuited primary suite</div>
+      <div><span class="dot"></span> Remote double garage with internal access</div>
+      <div><span class="dot"></span> Exclusive access to the Springthorpe Country Club pool, gym and tennis courts</div>
+      <div><span class="dot"></span> Close to Macleod Train Station, Polaris shopping, trams and La Trobe University</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Suburb Snapshot — Macleod</div>
+    <h2 class="section-heading">Market Indicators <span style="font-size:12px;color:var(--grey);font-weight:400;">(placeholder data, to be verified)</span></h2>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">$1.35m</div><div class="label">Median House Price</div></div>
+      <div class="stat-box"><div class="value">+4.5%</div><div class="label">12-Month Growth</div></div>
+      <div class="stat-box"><div class="value">2.8%</div><div class="label">Rental Yield</div></div>
+      <div class="stat-box"><div class="value">22 Days</div><div class="label">Avg. Days on Market</div></div>
+    </div>
+
+    <div class="pc-grid">
+      <div class="pc-card pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Located directly within Springthorpe Estate &ndash; the exact estate named in the brief</li>
+          <li>Two-storey design with a genuine backyard and covered deck for family living</li>
+          <li>Exclusive Country Club pool, gym and tennis court access covers the community pool requirement</li>
+          <li>Larger 959m² block gives the girls plenty of outdoor space, plus nearby parkland trails</li>
+          <li>Freshly painted and carpeted with a dedicated study &ndash; strong move-in condition</li>
+        </ul>
+      </div>
+      <div class="pc-card cons">
+        <h4>Considerations</h4>
+        <ul>
+          <li>Sits on Springthorpe Boulevard rather than a dead-end/cul-de-sac position, so doesn't fully match that specific preference</li>
+          <li>No mention of a fully fenced yard in the listing &ndash; confirm at inspection</li>
+          <li>At $1.65m&ndash;$1.725m, this is the higher-priced of the two Springthorpe options; budget confirmation recommended</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advocate Note -->
+  <section>
+    <div class="section-title">Advocate's Note</div>
+    <div class="note">
+      "Two genuinely strong options have now come onto the market within Springthorpe itself, and both tick the vast
+      majority of Simon's brief for his wife and two daughters. 7 Heritage Court is my clear top pick — it's the only one
+      of the two sitting on a true cul-de-sac, it backs onto the Country Club pool, playground and parkland trails Simon
+      specifically wanted, and the two-storey layout with three robed bedrooms plus a master suite gives the girls their
+      own space. 77 Springthorpe Boulevard runs it close on land size and finish, and it's arguably the more polished home,
+      but it sits on the main boulevard rather than a dead-end position, and it carries a meaningful price premium. I'd
+      also note that 38 Macleod Parade and 22 Donaldson Street, Ivanhoe, remain on file from our earlier search, but with
+      these two properties now available directly in Springthorpe, they're a materially better fit and I'd recommend we
+      move on either one rather than pursue the earlier alternatives. My priority now is to confirm Simon's budget and get
+      him through both homes before the weekend inspections, and to verify fencing on-site for both, since it isn't
+      explicitly stated in either listing."
+      <div class="signed">— Tonya Davidson, Founder</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Ready to Inspect These Springthorpe Homes?</h2>
+    <p>Your advocate is on standby to arrange inspections at 7 Heritage Court and 77 Springthorpe Boulevard and confirm your budget.</p>
+    <div class="contact-row">
+      <div><span class="label">Phone</span> 0417 391 987</div>
+      <div><span class="label">Email</span> tonya@davidsonadvocates.com.au</div>
+      <div><span class="label">Office</span> 15 William Street, Cremorne VIC 3121</div>
+    </div>
+  </div>
+
+  <footer class="disclaimer">
+    This report contains placeholder data generated for planning purposes only and does not reflect verified market research.
+    All figures, comparable sales, and suburb statistics are to be confirmed before client presentation.
+  </footer>
+
+</div>
+</body>
+</html>
