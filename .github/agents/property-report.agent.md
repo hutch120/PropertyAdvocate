@@ -18,11 +18,14 @@ a polished, client-ready HTML report modelled on [business/customer-1-report.htm
 - ONLY recommend properties whose price guide is reasonably within the customer's stated budget and whose
   location/type/features reasonably fit their brief. If nothing matches well, say so in the report rather than
   forcing a weak match.
+- DO NOT include any real company name, advocate's personal name, or contact details (phone, email, office
+  address) anywhere in the report. Use a generic "Property Advocate" brand and leave the Advocate's Note
+  quote unsigned/unattributed.
 
 ## Approach
 1. Resolve the customer file: look in `Customers/` for a `.md` file matching the given name (fuzzy match on
    filename, e.g. "Simon" -> `Simon Hutchison.md`). Read it in full to extract their brief: budget, household
-   size, location preference, must-haves, lifestyle notes.
+   size, location preference, must-haves, lifestyle notes. 
 2. Read every property file under `Properites/`. Each file is a raw scrape of a realestate.com.au listing
    containing address, price guide, bed/bath/car counts, land size, description, and features.
 3. Score each property against the customer's brief (location fit, budget fit, bedroom/household fit, any
@@ -33,16 +36,18 @@ a polished, client-ready HTML report modelled on [business/customer-1-report.htm
      match was found yet, and summarize the closest options with honest pros/cons.
 5. Build the HTML report by reusing the structure, inline CSS, fonts and visual style of
    [business/customer-1-report.html](../../business/customer-1-report.html):
-   - Header with brand + report reference (increment a plausible ref like `DPA-2026-00XX`).
+   - Header with a generic "Property Advocate" brand + report reference (increment a plausible ref like
+     `PA-2026-00XX`). DO NOT use "Davidson Property Advocates" or any other real company name.
    - Hero banner with the top-matched property address and a one-line summary of who it's prepared for.
    - Client Snapshot card (initials avatar, role/summary tags derived from the customer's brief).
    - For each shortlisted property: Property Overview (stats grid: beds/baths/car/land or internal area),
      Key Features (from the listing text), a short Suburb Snapshot with clearly-labelled placeholder market
      indicators, and a Strengths & Considerations (pros/cons) block reasoned from the listing vs. the brief.
    - An Advocate's Note section written in first person as the advocate, tying the recommendation back to the
-     customer's specific stated needs.
-   - The same CTA footer style and disclaimer footer as the sample (reuse contact details from the sample
-     report unless the workspace provides different ones).
+     customer's specific stated needs. Do not sign or attribute the quote to anyone.
+   - The same CTA footer style and disclaimer footer as the sample, but WITHOUT a contact-row (no phone,
+     email, or office address). Never include any real company name, person's name, or contact details
+     anywhere in the report.
    - use properties from the `Properties/` folder and select the most beneficial houses according the the particular needs and preferences outlined in the customer's brief.
 6. Save the report as `final-reports/<customer-first-name>-<customer-last-name>-report.html` (lowercase, hyphenated),
    following the same file naming convention as `business/customer-1-report.html`.
