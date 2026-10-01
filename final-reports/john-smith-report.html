@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Property Report — 130 Somers Avenue, Macleod</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#10233f;
+    --navy-light:#1c3a63;
+    --gold:#b9924a;
+    --gold-light:#e8d5ab;
+    --cream:#faf7f1;
+    --grey:#6b7280;
+    --line:#e5e0d5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:#1f2937;
+    background:var(--cream);
+    line-height:1.6;
+  }
+  h1,h2,h3,.brand{font-family:'Playfair Display',serif;}
+  .page{max-width:960px;margin:0 auto;background:#fff;box-shadow:0 0 40px rgba(16,35,63,0.08);}
+
+  /* Header */
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;
+    padding:28px 48px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  header .brand{font-size:22px;letter-spacing:0.5px;}
+  header .brand span{color:var(--gold-light);}
+  header .tagline{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);opacity:0.85;margin-top:2px;}
+
+  /* Hero */
+  .hero{
+    position:relative;
+    background:
+      linear-gradient(rgba(16,35,63,0.55),rgba(16,35,63,0.75)),
+      repeating-linear-gradient(45deg, #2a3f5f 0, #2a3f5f 40px, #24395a 40px, #24395a 80px);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:32px 48px;
+  }
+  .hero .badge{
+    display:inline-block;
+    background:var(--gold);
+    color:#10233f;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:6px 14px;
+    border-radius:20px;
+    margin-bottom:14px;
+    width:fit-content;
+  }
+  .hero h1{font-size:32px;margin-bottom:6px;}
+  .hero p{font-size:15px;opacity:0.9;}
+
+  /* Sections */
+  section{padding:36px 48px;border-bottom:1px solid var(--line);}
+  section:last-of-type{border-bottom:none;}
+  .section-title{
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:16px;
+  }
+  h2.section-heading{font-size:24px;color:var(--navy);margin-bottom:18px;}
+  h3.property-heading{font-size:19px;color:var(--navy);margin-bottom:4px;}
+  p.property-sub{font-size:13px;color:var(--grey);margin-bottom:20px;}
+
+  /* Client snapshot */
+  .client-card{
+    display:flex;
+    gap:24px;
+    background:var(--navy);
+    color:#fff;
+    border-radius:12px;
+    padding:28px;
+  }
+  .client-avatar{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--gold);
+    color:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Playfair Display',serif;font-size:26px;font-weight:700;
+    flex-shrink:0;
+  }
+  .client-card h3{font-size:20px;margin-bottom:4px;}
+  .client-card p.role{color:var(--gold-light);font-size:13px;margin-bottom:12px;}
+  .client-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .client-tags span{
+    background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.25);
+    padding:4px 12px;border-radius:20px;font-size:12px;
+  }
+
+  /* Stats grid */
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+  .stat-box{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px;
+    text-align:center;
+  }
+  .stat-box .value{font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);font-weight:700;}
+  .stat-box .label{font-size:12px;color:var(--grey);text-transform:uppercase;letter-spacing:0.5px;margin-top:4px;}
+
+  /* Feature list */
+  .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:8px;}
+  .feature-grid div{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .feature-grid .dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+
+  /* Pros/cons */
+  .pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;}
+  .pc-card{border-radius:10px;padding:20px;}
+  .pc-card.pros{background:#eef6ee;border:1px solid #cfe8cf;}
+  .pc-card.cons{background:#fbeeee;border:1px solid #f0cfcf;}
+  .pc-card h4{margin-bottom:10px;font-size:14px;text-transform:uppercase;letter-spacing:0.5px;}
+  .pc-card.pros h4{color:#2f7a3a;}
+  .pc-card.cons h4{color:#a13d3d;}
+  .pc-card ul{padding-left:18px;font-size:14px;}
+  .pc-card li{margin-bottom:6px;}
+
+  .divider{height:1px;background:var(--line);margin:32px 0;}
+
+  /* Not-shortlisted list */
+  .reject-list{border-top:1px solid var(--line);margin-top:28px;padding-top:24px;}
+  .reject-item{margin-bottom:16px;}
+  .reject-item h4{font-size:15px;color:var(--navy);margin-bottom:4px;}
+  .reject-item p{font-size:13.5px;color:var(--grey);}
+
+  /* Advocate note */
+  .note{
+    background:var(--cream);
+    border-left:4px solid var(--gold);
+    padding:20px 24px;
+    font-style:italic;
+    color:#374151;
+    border-radius:0 8px 8px 0;
+  }
+  .note .signed{margin-top:12px;font-style:normal;font-weight:600;color:var(--navy);}
+
+  /* CTA footer */
+  .cta{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-light) 100%);
+    color:#fff;text-align:center;padding:44px 48px;
+  }
+  .cta h2{font-size:26px;margin-bottom:10px;}
+  .cta p{opacity:0.85;margin-bottom:20px;}
+
+  footer.disclaimer{
+    padding:18px 48px;font-size:11px;color:var(--grey);text-align:center;background:#fff;
+  }
+
+  @media (max-width:640px){
+    header,section,.cta{padding:24px;}
+    .stats-grid{grid-template-columns:1fr 1fr;}
+    .feature-grid,.pc-grid{grid-template-columns:1fr;}
+    .client-card{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="brand">Property <span>Advocate</span></div>
+      <div class="tagline">Trusted · Professional · Connected · Discreet</div>
+    </div>
+    <div style="text-align:right;font-size:12px;">
+      Property Report
+    </div>
+  </header>
+
+  <div class="hero">
+    <span class="badge">Shortlisted Properties</span>
+    <h1>130 Somers Avenue, Macleod VIC 3085</h1>
+    <p>Prepared for John Smith · Young Family, Wife Karen &amp; Two Kids (6 &amp; 9), One Dog · Target Area: Macleod, Watsonia &amp; Rosanna</p>
+  </div>
+
+  <!-- Client Snapshot -->
+  <section>
+    <div class="section-title">Client Snapshot</div>
+    <div class="client-card">
+      <div class="client-avatar">JS</div>
+      <div>
+        <h3>John Smith</h3>
+        <p class="role">Young Family Buyer · Wife Karen, Kids 6 &amp; 9, Border Collie · Currently Living in Bundoora</p>
+        <div class="client-tags">
+          <span>Wants to Live in Macleod</span>
+          <span>Wants to Live in Watsonia</span>
+          <span>Wants to Live in Rosanna</span>
+          <span>4+ Bedroom Family Home</span>
+          <span>Budget $1.0m&ndash;$1.8m</span>
+          <span>Fenced Yard for the Dog</span>
+          <span>North-Facing Backyard Preferred</span>
+          <span>Near School &amp; Train Station</span>
+          <span>Quiet Street, No Busy Roads</span>
+          <span>2 Car Garage</span>
+          <span>Move-In Ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Option 1 -->
+  <section>
+    <div class="section-title">Option 1 — Best Overall Match</div>
+    <h2 class="section-heading">130 Somers Avenue, Macleod, Vic 3085</h2>
+    <p class="property-sub">Auction Guide $1,200,000&ndash;$1,300,000 · Macleod (616m²) · Ray White &ndash; Macleod</p>
+
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">4</div><div class="label">Bedrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Bathrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Car Spaces (Garage)</div></div>
+      <div class="stat-box"><div class="value">616m²</div><div class="label">Land Size</div></div>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:32px;">Key Features</h2>
+    <div class="feature-grid">
+      <div><span class="dot"></span> Single-level family home in a quiet Macleod street</div>
+      <div><span class="dot"></span> Large, enclosed and private backyard &ndash; ideal for a dog</div>
+      <div><span class="dot"></span> Dedicated study, separate from the four bedrooms</div>
+      <div><span class="dot"></span> Main bedroom with modern ensuite, family bathroom with bathtub</div>
+      <div><span class="dot"></span> Open-plan kitchen, living and dining opening to rear deck</div>
+      <div><span class="dot"></span> Merbau deck entertaining area with built-in BBQ and bar fridge</div>
+      <div><span class="dot"></span> Fenced swimming pool with limestone surround</div>
+      <div><span class="dot"></span> Double lock-up garage with roller-door access to the rear</div>
+      <div><span class="dot"></span> Gas ducted heating, evaporative cooling, security alarm</div>
+      <div><span class="dot"></span> Walking distance to Gresswell Nature Reserve, Macleod Village, schools and public transport</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Suburb Snapshot — Macleod</div>
+    <h2 class="section-heading">Market Indicators <span style="font-size:12px;color:var(--grey);font-weight:400;">(placeholder data, to be verified)</span></h2>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">$1.35m</div><div class="label">Median House Price</div></div>
+      <div class="stat-box"><div class="value">+4.5%</div><div class="label">12-Month Growth</div></div>
+      <div class="stat-box"><div class="value">2.8%</div><div class="label">Rental Yield</div></div>
+      <div class="stat-box"><div class="value">22 Days</div><div class="label">Avg. Days on Market</div></div>
+    </div>
+
+    <div class="pc-grid">
+      <div class="pc-card pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Listing explicitly describes a "large, enclosed and private backyard" &ndash; directly matches the fenced-yard must-have for the dog</li>
+          <li>Positioned in "a quiet street" within Macleod &ndash; matches the quiet-street requirement and the main-road dealbreaker is avoided</li>
+          <li>616m² land sits right in the middle of the 500&ndash;700sqm target range</li>
+          <li>4 bedrooms, 2 bathrooms and a 2-car garage match John's core requirements exactly, plus a bonus study</li>
+          <li>Walking distance to Macleod Village, schools and public transport, and comfortably within the $1.0m&ndash;$1.8m budget</li>
+          <li>Freshly presented, single-level and renovated for entertaining &ndash; fits the "move-in ready" preference</li>
+        </ul>
+      </div>
+      <div class="pc-card cons">
+        <h4>Considerations</h4>
+        <ul>
+          <li>No orientation is stated in the listing, so the north-facing backyard preference cannot be confirmed without a site visit</li>
+          <li>Selling by auction (24 October) rather than private sale &ndash; John will need representation on the day as planned</li>
+          <li>The pool is a bonus but adds a maintenance consideration not specifically requested in the brief</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Option 2 -->
+  <section>
+    <div class="section-title">Option 2 — Strong Alternative in Rosanna</div>
+    <h2 class="section-heading">39 Finlayson Street, Rosanna, Vic 3084</h2>
+    <p class="property-sub">EOI $1,495,000&ndash;$1,640,000 · Rosanna (625m²) · Nelson Alexander &ndash; Preston</p>
+
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">4</div><div class="label">Bedrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Bathrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Car Spaces (Carport)</div></div>
+      <div class="stat-box"><div class="value">625m²</div><div class="label">Land Size</div></div>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:32px;">Key Features</h2>
+    <div class="feature-grid">
+      <div><span class="dot"></span> Prized northeast-facing courtyard aspect with north-facing pergola and entertaining area</div>
+      <div><span class="dot"></span> Architect-designed 1971 Merchant Builders home by Graeme Gunn AM, renovated over 30 years</div>
+      <div><span class="dot"></span> Renovated AEG kitchen &ndash; combi steam oven, induction cooktop, integrated dishwasher</div>
+      <div><span class="dot"></span> Separate family room with built-in storage, desk and private deck</div>
+      <div><span class="dot"></span> Main bedroom with built-in robes, ensuite and direct rear garden access</div>
+      <div><span class="dot"></span> Established garden with vegetable beds, fruit trees and a secure chicken coop/run</div>
+      <div><span class="dot"></span> Solar panels and solar hot water installed</div>
+      <div><span class="dot"></span> 600m to Rosanna Station and two primary schools; 200m to parkland</div>
+      <div><span class="dot"></span> Split-system and gas heating/cooling throughout</div>
+      <div><span class="dot"></span> Double carport, rainwater tank and powered workshop</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Suburb Snapshot — Rosanna</div>
+    <h2 class="section-heading">Market Indicators <span style="font-size:12px;color:var(--grey);font-weight:400;">(placeholder data, to be verified)</span></h2>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">$1.42m</div><div class="label">Median House Price</div></div>
+      <div class="stat-box"><div class="value">+3.9%</div><div class="label">12-Month Growth</div></div>
+      <div class="stat-box"><div class="value">2.6%</div><div class="label">Rental Yield</div></div>
+      <div class="stat-box"><div class="value">19 Days</div><div class="label">Avg. Days on Market</div></div>
+    </div>
+
+    <div class="pc-grid">
+      <div class="pc-card pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Explicitly north-facing backyard/courtyard &ndash; the only shortlisted property to directly confirm this preference</li>
+          <li>625m² block sits comfortably within the 500&ndash;700sqm target range</li>
+          <li>600m walk to Rosanna Station and two primary schools &ndash; strongly matches the near-school/near-train must-have</li>
+          <li>Solar panels already installed &ndash; satisfies a stated nice-to-have directly</li>
+          <li>Established, secure garden with a chicken run shows the yard is enclosed, supporting the fenced-yard need for the dog</li>
+        </ul>
+      </div>
+      <div class="pc-card cons">
+        <h4>Considerations</h4>
+        <ul>
+          <li>Car accommodation is a double carport rather than the preferred enclosed garage</li>
+          <li>EOI guide runs up to $1.64m, the highest of the three shortlisted homes, though still under the $1.8m cap</li>
+          <li>A 1971 home, even though renovated &ndash; worth confirming "move-in ready" condition at inspection rather than relying on the listing alone</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Property Option 3 -->
+  <section>
+    <div class="section-title">Option 3 — Budget-Friendly Option in Watsonia</div>
+    <h2 class="section-heading">1 Kenmare Street, Watsonia, Vic 3087</h2>
+    <p class="property-sub">$1,180,000&ndash;$1,280,000 · Watsonia (400m²) · Jellis Craig &ndash; Greensborough &amp; Hurstbridge</p>
+
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">4</div><div class="label">Bedrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Bathrooms</div></div>
+      <div class="stat-box"><div class="value">2</div><div class="label">Car Spaces (Garage)</div></div>
+      <div class="stat-box"><div class="value">400m²</div><div class="label">Land Size</div></div>
+    </div>
+
+    <h2 class="section-heading" style="margin-top:32px;">Key Features</h2>
+    <div class="feature-grid">
+      <div><span class="dot"></span> Freshly built residence with premium finish throughout</div>
+      <div><span class="dot"></span> Open-plan kitchen, meals and family zone opening to covered deck and grassed backyard</div>
+      <div><span class="dot"></span> Ground-floor main bedroom with ensuite</div>
+      <div><span class="dot"></span> Upstairs second living zone plus versatile study/4th bedroom</div>
+      <div><span class="dot"></span> 900mm Bosch appliances, stone benchtops, Boston Oak cabinetry</div>
+      <div><span class="dot"></span> Engineered hardwood flooring, double glazed windows throughout</div>
+      <div><span class="dot"></span> Refrigerated ducted multi-head heating and cooling</div>
+      <div><span class="dot"></span> Double garage with drive-through access</div>
+      <div><span class="dot"></span> Close to Watsonia Primary School and Macleod College</div>
+      <div><span class="dot"></span> Expressions of interest close 15 October</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-title">Suburb Snapshot — Watsonia</div>
+    <h2 class="section-heading">Market Indicators <span style="font-size:12px;color:var(--grey);font-weight:400;">(placeholder data, to be verified)</span></h2>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="value">$1.05m</div><div class="label">Median House Price</div></div>
+      <div class="stat-box"><div class="value">+4.1%</div><div class="label">12-Month Growth</div></div>
+      <div class="stat-box"><div class="value">3.0%</div><div class="label">Rental Yield</div></div>
+      <div class="stat-box"><div class="value">18 Days</div><div class="label">Avg. Days on Market</div></div>
+    </div>
+
+    <div class="pc-grid">
+      <div class="pc-card pros">
+        <h4>Strengths</h4>
+        <ul>
+          <li>Freshly built and finished to a high standard &ndash; the strongest "move-in ready" option of the three</li>
+          <li>Covered deck and grassed backyard give genuine outdoor space for the kids and the dog</li>
+          <li>4 bedrooms (or 3 plus study), 2 bathrooms and a double garage match John's core requirements</li>
+          <li>Lowest price guide of the shortlist, leaving the most budget headroom against the $1.0m&ndash;$1.8m range</li>
+          <li>Walking distance to Watsonia Primary School and Macleod College</li>
+        </ul>
+      </div>
+      <div class="pc-card cons">
+        <h4>Considerations</h4>
+        <ul>
+          <li>400m² land is below the stated 500&ndash;700sqm preference &ndash; the smallest block of the three shortlisted homes</li>
+          <li>No orientation stated, so north-facing backyard cannot be confirmed</li>
+          <li>Backyard is described as "grassed" but fencing isn't explicitly confirmed &ndash; verify at inspection</li>
+          <li>No train station proximity mentioned in the listing, though Watsonia Station is nearby in the suburb generally</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Properties Not Shortlisted -->
+  <section>
+    <div class="section-title">Properties Considered but Not Shortlisted</div>
+    <h2 class="section-heading">Why the Other Five Didn't Make the Cut</h2>
+    <div class="reject-list">
+      <div class="reject-item">
+        <h4>11 Hilltop Avenue, Macleod</h4>
+        <p>Only one bathroom against John's 2-bathroom minimum, car accommodation is a carport rather than garage, and the listing discloses major structural defects from previous termite damage &ndash; a clear conflict with the "move-in ready" preference and a potential dealbreaker in its own right.</p>
+      </div>
+      <div class="reject-item">
+        <h4>12 Bellevue Avenue, Rosanna</h4>
+        <p>This is a 739m² landholding with two original three-bedroom homes on one title, marketed as a development/renovation opportunity for builders and investors rather than a single move-in-ready family home. It is also already under offer. Doesn't suit a family wanting a turn-key home with a fenced yard.</p>
+      </div>
+      <div class="reject-item">
+        <h4>30 Kenmare Street, Watsonia</h4>
+        <p>Only one car space against the 2-car garage requirement, and the 296m² block is well short of the 500&ndash;700sqm target &ndash; outdoor space is a private alfresco courtyard rather than a genuine fenced backyard for the dog.</p>
+      </div>
+      <div class="reject-item">
+        <h4>135 Grandview Grove, Rosanna</h4>
+        <p>An excellent location (120m from Rosanna Primary School) but the listing describes a multi-level home with an entertaining deck and no mention of a yard or fencing at all &ndash; too close to the "no backyard" dealbreaker to shortlist with confidence, and the 5-bed/4-car scale exceeds what the family needs.</p>
+      </div>
+      <div class="reject-item">
+        <h4>94 Springthorpe Boulevard, Macleod</h4>
+        <p>Genuinely north-facing and beautifully presented with a pool, but priced at $1,900,000&ndash;$1,990,000 &ndash; outside John's stated $1,000,000&ndash;$1,800,000 budget, which rules it out regardless of fit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advocate Note -->
+  <section>
+    <div class="section-title">Advocate's Note</div>
+    <div class="note">
+      "Of the eight properties reviewed in Macleod, Watsonia and Rosanna, three genuinely stand up against John and Karen's
+      brief. 130 Somers Avenue is my clear top pick &ndash; it's the only listing that explicitly describes a large, enclosed,
+      private backyard on a quiet street, and it hits the 4-bedroom, 2-bathroom, 2-car-garage and 500&ndash;700sqm targets almost
+      exactly, all within budget. 39 Finlayson Street in Rosanna runs it close and is the only home to confirm a genuine
+      north-facing backyard, with the added bonus of solar panels and an unbeatable walk to Rosanna Station and two primary
+      schools, though it carries a carport rather than a garage and sits at the top of the budget range. 1 Kenmare Street in
+      Watsonia is the value play &ndash; freshly built, beautifully finished and the most affordable of the three, though its
+      400m² block is smaller than John asked for. I've left out 11 Hilltop Avenue and 12 Bellevue Avenue due to structural
+      and development-grade issues, 30 Kenmare Street on space and car parking, 135 Grandview Grove because the yard and
+      fencing situation couldn't be confirmed from the listing, and 94 Springthorpe Boulevard purely on price. My priority
+      now is to get John and Karen through all three shortlisted homes this weekend and verify fencing and orientation
+      in person, particularly at 130 Somers Avenue and 1 Kenmare Street."
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Ready to Inspect These Homes?</h2>
+    <p>Your advocate is on standby to arrange weekend inspections at 130 Somers Avenue, 39 Finlayson Street and 1 Kenmare Street.</p>
+  </div>
+
+  <footer class="disclaimer">
+    This report contains placeholder data generated for planning purposes only and does not reflect verified market research.
+    All figures, comparable sales, and suburb statistics are to be confirmed before client presentation.
+  </footer>
+
+</div>
+</body>
+</html>

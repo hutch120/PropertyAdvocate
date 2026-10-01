@@ -1,12 +1,23 @@
 # Client Intake Template
 
+Copy this file and rename it to the customer's name. Fill in what you know; leave blanks for
+follow-up questions during the initial consultation.
+
+## Contact details
+- Name(s):
+- Phone:
+- Email:
+- Preferred contact method / best times to reach:
+- Solicitor / conveyancer (if already engaged):
+- Mortgage broker / lender (if already engaged):
+
 ## Household
-- Who's buying: family, wife and 2 kids - 10 and 14
-- Partner/dependents: at least 4 bedrooms
-- Pets: none
+- Who's buying (individual, couple, family, investor):
+- Partner/dependents (ages, if relevant to bedroom/space needs):
+- Pets:
 
 ## Budget & finance
-- Price range: 1
+- Price range:
 - Pre-approval status (amount, lender, expiry date):
 - Deposit available:
 - First home buyer (grants/concessions applicable):
